@@ -17,14 +17,18 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-        body { line-height: 1.6; color: var(--text); }
+        body { 
+            line-height: 1.6; 
+            color: var(--text); 
+            padding-bottom: 70px; /* 防止底部橫幅遮擋內容 */
+        }
 
         /* Navigation */
         nav { background: var(--white); padding: 0.5rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; height: 80px; }
 
-        /* [UPDATED] Logo Styles */
+        /* Logo Styles */
         .logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; height: 100%; }
-        .logo-img { height: 60px; width: auto; margin-right: 15px; } /* Adjustable logo size */
+        .logo-img { height: 60px; width: auto; margin-right: 15px; } 
         .logo-text { font-size: 1.5rem; font-weight: bold; color: var(--primary); display: flex; flex-direction: column; line-height: 1.2; }
         .logo-sub { font-size: 0.8rem; color: #666; font-weight: normal; }
 
@@ -101,8 +105,8 @@
 
         /* Timetable Styles */
         .timetable-section { background: var(--light-bg); }
-        .table-container { overflow-x: auto; /* Allow scrolling on mobile */ background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        table { width: 100%; border-collapse: collapse; min-width: 600px; /* Force width for scroll */ }
+        .table-container { overflow-x: auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
         th { background: var(--primary); color: white; padding: 15px; text-align: left; }
         td { padding: 15px; border-bottom: 1px solid #eee; color: #555; vertical-align: middle; }
         tr:last-child td { border-bottom: none; }
@@ -110,22 +114,90 @@
         .subject-tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-right: 5px; }
         .chem { background: #e3f2fd; color: #1976d2; }
         .bio { background: #e8f5e9; color: #388e3c; }
-        .econ { background: #fff3e0; color: #f57c00; }
         .video-class { background: #eee; color: #666; }
 
-        /* Testimonials */
-        .testimonials { background: var(--white); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
-        .testimonial-card { background: #f8f9fa; padding: 30px; border-radius: 10px; font-style: italic; border: 1px solid #eee; }
-        .student-name { display: block; margin-top: 20px; font-weight: bold; color: var(--primary); font-style: normal; text-align: right; }
+        /* =========================================
+           [NEW] Results Wall Styles
+           ========================================= */
+        .results-wall { background: #eef2f5; padding: 80px 5%; }
+        .results-header-text { text-align: center; margin-bottom: 50px; }
+        .god-tier-badge { display: inline-block; background: var(--accent); color: var(--primary); padding: 8px 20px; border-radius: 30px; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(255,215,0,0.4); }
+        
+        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .result-card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-top: 5px solid var(--primary); position: relative; transition: transform 0.3s; }
+        .result-card:hover { transform: translateY(-5px); }
+        .school-badge { font-size: 0.85rem; background: #e3f2fd; color: #003366; padding: 5px 12px; border-radius: 6px; display: inline-block; margin-bottom: 15px; font-weight: bold; border: 1px solid #bbdefb; }
+        .grade-jump { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; color: #444; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .jump-arrow { color: #ccc; font-size: 1rem; }
+        .grade-before { text-decoration: line-through; color: #999; }
+        .grade-after { color: #e67e22; font-size: 1.6rem; text-shadow: 1px 1px 0px rgba(230,126,34,0.2); }
+        .student-quote { font-style: italic; color: #555; background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent); position: relative; }
+        .student-quote::before { content: '"'; font-size: 3rem; color: #e0e0e0; position: absolute; top: -10px; left: 10px; font-family: serif; line-height: 1; }
+        .student-quote p { position: relative; z-index: 1; margin: 0; padding-left: 15px; }
+
+        .results-footer { text-align: center; margin-top: 60px; }
+        .next-one { font-size: 2.5rem; color: var(--primary); font-weight: bold; margin-bottom: 25px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .next-one span { color: #e67e22; }
 
         /* CTA Section */
         .cta-section { text-align: center; background: var(--light-bg); }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; transition: transform 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* Footer */
-        footer { background: #333; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; }
+        footer { background: #333; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; padding-bottom: 90px; }
+
+        /* Sticky CTA Banner & WhatsApp Float */
+        .sticky-cta-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 51, 102, 0.95);
+            backdrop-filter: blur(8px);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 20px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            gap: 20px;
+        }
+        .sticky-cta-text { font-size: 1.1rem; font-weight: bold; }
+        .sticky-cta-text span { color: var(--accent); }
+        .sticky-cta-btn {
+            background: #25D366;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s;
+            font-size: 1rem;
+        }
+        .sticky-cta-btn:hover { transform: scale(1.05); background: #20b858; }
+
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 80px; 
+            right: 20px; 
+            background: #25D366; 
+            color: white; 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 30px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            z-index: 999; 
+            text-decoration: none; 
+            transition: transform 0.3s; 
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
@@ -134,18 +206,22 @@
             .stats { margin-top: 0; border-radius: 0; }
             .school-category { text-align: center; }
             .school-list li { justify-content: center; }
-            .school-list li:before { display: none; } /* Simplify for mobile */
-            .logo-text { display: none; } /* On very small screens, only show logo icon */
+            .school-list li:before { display: none; } 
+            .logo-text { display: none; } 
+
+            .sticky-cta-banner { flex-direction: column; padding: 10px; gap: 10px; }
+            .sticky-cta-text { font-size: 0.95rem; text-align: center; }
+            .whatsapp-float { bottom: 120px; right: 15px; width: 50px; height: 50px; font-size: 25px; }
+            body { padding-bottom: 110px; }
+            .next-one { font-size: 2rem; }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- [UPDATED] Navigation with Logo -->
     <nav>
         <a href="#" class="logo-container">
-            <!-- Instructions for user: Replace the src below with your actual logo URL -->
             <img src="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" class="logo-img">
             <div class="logo-text">
                 Steven Sir 
@@ -160,7 +236,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-tags">
             <span>🔥 全沙田最有實力</span>
@@ -169,12 +244,11 @@
         </div>
         <h1>理科想奪星？<br>揀 Steven Sir！</h1>
         <p>專攻 DSE Chemistry & Biology | 私補式貼心教學 | 24小時無限問書<br>最強星級配套，助你輕鬆應付學校考試及 DSE。</p>
-        <a href="https://wa.me/85212345678" class="cta-btn" style="padding: 15px 30px; font-size: 1.2rem; display: inline-block; margin-top: 20px;">
+        <a href="https://wa.me/85265572013" class="cta-btn" style="padding: 15px 30px; font-size: 1.2rem; display: inline-block; margin-top: 20px;">
             <i class="fab fa-whatsapp"></i> 預約免費試堂
         </a>
     </section>
 
-    <!-- Stats -->
     <section class="stats">
         <div class="stat-item">
             <span class="stat-number">100%</span>
@@ -190,7 +264,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="about-text">
             <h2 class="section-title">關於 Steven Sir</h2>
@@ -204,18 +277,15 @@
             <p>我不僅教你知識，更教你考試的策略。從題目設計到批改，我與團隊都親力親為，因為我們關心每個學生的進度。</p>
         </div>
         <div class="about-img">
-            <!-- Instructions: Put your image URL here -->
             <img src="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" style="width:100%; height:100%; object-fit:cover;">
         </div>
     </section>
 
-    <!-- Schools List Section -->
     <section id="schools" class="schools-section">
         <div class="schools-title">最強拔尖．最強保底</div>
         <div class="schools-subtitle">無論名校定底子弱，來到 Steven Sir 課堂都能進步！</div>
 
         <div class="schools-grid">
-            <!-- Group 1: Elite / Top Tier (Gold Style) -->
             <div class="school-category elite-cat">
                 <h3>👑 名校之選．頂尖實力</h3>
                 <p style="color:#ccc; margin-bottom:15px; font-size:0.9rem;">來自全港 Band 1 名校的尖子首選，目標衝擊 5** / 醫科神科</p>
@@ -242,7 +312,6 @@
                 </ul>
             </div>
 
-            <!-- Group 2: Remedial / Progress (Blue Style) -->
             <div class="school-category remedial-cat">
                 <h3>📈 保底之選．絕地翻身</h3>
                 <p style="color:#ccc; margin-bottom:15px; font-size:0.9rem;">由 U/2 升上 4/5，專攻合格及升 Grade 策略，重建信心！</p>
@@ -262,14 +331,13 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="features">
         <h2 class="section-title" style="text-align: center; border: none; margin-bottom: 50px;">為什麼選擇我們？</h2>
         <div class="feature-grid">
             <div class="feature-card">
                 <span class="feature-icon">💬</span>
                 <h3>24小時無限問書</h3>
-                <p>做卷遇到唔識？隨時 WhatsApp 我。我會用最清晰的方式，甚至拍片一步步解釋俾你聽。</p>
+                <p>做卷遇到唔識？隨時 WhatsApp 我。我會用最清晰的方式，甚至拍片一步步解釋俾 implementation 聽。</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">📚</span>
@@ -284,7 +352,6 @@
         </div>
     </section>
 
-    <!-- Video Portal Section -->
     <section id="videos" class="video-section">
         <h2 class="section-title" style="text-align: center; border:none;">真材實料．免費試堂影片</h2>
         <p style="text-align: center; color: #666;">不用付費，先看教學風格。清晰概念，一聽即明！</p>
@@ -328,7 +395,6 @@
         </div>
     </section>
 
-    <!-- Timetable Section -->
     <section id="timetable" class="timetable-section">
         <h2 class="section-title">2026 常規課程時間表</h2>
         <p style="margin-bottom: 20px;">地點：沙田石門京瑞廣場 (天王教育) | <span style="color:red; font-weight:bold;">Video Class</span> 任何時間段，隨時重溫！</p>
@@ -344,6 +410,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td><strong>S.3 (中三)</strong></td>
+                        <td><span class="subject-tag chem">CHEM</span> <span class="subject-tag bio">BIO</span> 終極大考衝刺班</td>
+                        <td>
+                            星期六 6:00-7:30 pm (Chemistry)<br>
+                            星期六 8:00-9:30 pm (Biology)<br>
+                            星期日 7:00-8:30 pm (實戰操卷班 📝)
+                        </td>
+                        <td style="color: #e67e22; font-weight: bold;">🔥 即將滿額</td>
+                    </tr>
                     <tr>
                         <td><strong>S.6 (中六)</strong></td>
                         <td><span class="subject-tag chem">CHEM</span> 終極衝刺班</td>
@@ -375,12 +451,6 @@
                         <td style="color: green;">招生中</td>
                     </tr>
                     <tr>
-                        <td><strong>S.4 (中四)</strong></td>
-                        <td><span class="subject-tag econ">ECON</span> 常規拔尖/補底班</td>
-                        <td>星期五 7:40 – 9:10 pm</td>
-                        <td style="color: green;">招生中</td>
-                    </tr>
-                    <tr>
                         <td><strong>全級別</strong></td>
                         <td><span class="subject-tag video-class">VIDEO</span> 自選topic重溫模式</td>
                         <td>任何時間段，隨時重溫！</td>
@@ -391,32 +461,101 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <h2 class="section-title">學生真實好評</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"Steven 真係超有心機！💖 最正係佢會特登拍片，一步步解釋俾我聽，令我掌握每個概念！"</p>
-                <span class="student-name">- 沙田培英中學 葉同學</span>
+    <section id="results" class="results-wall">
+        <div class="results-header-text">
+            <div class="god-tier-badge">🎓 CUHK 藥劑系神科親授，將狀元溫習法傳授給你！</div>
+            <h2 class="section-title" style="border:none; margin-bottom: 10px;">不講廢話，只講實質成績進步</h2>
+            <p style="color: #666; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">即使是校內試難度極高的沙田區 Band 1 名校，來到這裡一樣能強勢反底、勇奪高分！</p>
+        </div>
+
+        <div class="result-grid">
+            <div class="result-card">
+                <div class="school-badge">聖公會曾肇添中學 • S.4 Chem</div>
+                <div class="grade-jump">
+                    <span class="grade-before">全級排名 60+</span> 
+                    <i class="fas fa-arrow-right jump-arrow"></i> 
+                    <span class="grade-after">Top 10!</span>
+                </div>
+                <div class="student-quote">
+                    <p>以前見到 Mole 數就頭暈，Steven Sir 用一堂就幫我打通任督二脈！筆記神級精讀，今次大考竟然衝上全級前十！</p>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <p>"本身 Chem 成績麻麻，補咗 Steven 之後，今次居然進步到全級第三！配套超實用！"</p>
-                <span class="student-name">- 中聖書院 譚同學</span>
+            
+            <div class="result-card">
+                <div class="school-badge">浸信會呂明才中學 • S.5 Bio</div>
+                <div class="grade-jump">
+                    <span class="grade-before">上學期 42% (不合格)</span> 
+                    <i class="fas fa-arrow-right jump-arrow"></i> 
+                    <span class="grade-after">大考 85%!</span>
+                </div>
+                <div class="student-quote">
+                    <p>之前 Bio 成日死背都唔識答。跟咗阿 Sir 操 Mock 卷，發現佢捉路超準，答題技巧令我無再比老師扣啲無謂分！</p>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <p>"多謝 Steven 的悉心教導，令我在考試中大幅進步！常規課程超級幫到我！"</p>
-                <span class="student-name">- 九龍真光中學 謝同學</span>
+
+            <div class="result-card">
+                <div class="school-badge">沙田培英中學 • S.4 Bio</div>
+                <div class="grade-jump">
+                    <span class="grade-before">測驗 C Grade</span> 
+                    <i class="fas fa-arrow-right jump-arrow"></i> 
+                    <span class="grade-after">全班第 1 名 (A)</span>
+                </div>
+                <div class="student-quote">
+                    <p>本身底子一般，但係 24 小時 WhatsApp 問書真係救咗我！有咩唔明阿 Sir 都會即刻覆，仲會 Voice Message 講到我明為止。</p>
+                </div>
             </div>
+
+            <div class="result-card">
+                <div class="school-badge">沙田官立中學 • S.5 Chem</div>
+                <div class="grade-jump">
+                    <span class="grade-before">全級尾 20 名</span> 
+                    <i class="fas fa-arrow-right jump-arrow"></i> 
+                    <span class="grade-after">全級 Top 25%</span>
+                </div>
+                <div class="student-quote">
+                    <p>補底神助攻！兩個月時間幫我清翻中四啲 Concept，原來 Chem 可以咁易明，連學校阿 Sir 都問我點解進步咁大！</p>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <div class="school-badge">聖羅撒書院 • S.3 Chem+Bio</div>
+                <div class="grade-jump">
+                    <span class="grade-before">科科踩界邊緣</span> 
+                    <i class="fas fa-arrow-right jump-arrow"></i> 
+                    <span class="grade-after">勇奪雙星直入精英班</span>
+                </div>
+                <div class="student-quote">
+                    <p>中三選科真係定生死！好彩報咗終極大考衝刺班，星期日仲要加碼實戰操卷，逼我落筆寫，成功揀到心水神科！</p>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <div class="school-badge">沙田崇真中學 • S.4 Chem</div>
+                <div class="grade-jump">
+                    <span class="grade-before">學校 Mock 卷得 50 分</span> 
+                    <i class="fas fa-arrow-right jump-arrow"></i> 
+                    <span class="grade-after">期終試突破 88 分!</span>
+                </div>
+                <div class="student-quote">
+                    <p>題海戰術加私補式貼身跟進！唔同出面大型補習社，Steven Sir 真係會逐個關心進度，針對我弱點狂操，效果極速！</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-footer">
+            <div class="next-one">下一個爆分嘅，<span>就係你！🫵</span></div>
+            <a href="https://wa.me/85265572013?text=你好，我想預約免費試堂！" class="cta-btn" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
+                <i class="fab fa-whatsapp"></i> 立即 WhatsApp 留位，體驗神科級教學
+            </a>
         </div>
     </section>
 
-    <!-- Location & Contact -->
     <section id="contact" class="cta-section">
         <h2 class="section-title" style="border:none; margin-bottom: 10px;">加入我們，下一個奪星就是你</h2>
         <p style="margin-bottom: 30px;">地點：沙田石門京瑞廣場 (天王教育)</p>
 
         <div style="background: #fff3cd; padding: 20px; border-radius: 10px; display: inline-block; margin-bottom: 30px; border: 1px solid #ffeeba;">
-            <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem/Econ 可享 $200 學費資助！</strong></p>
+            <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
         <br>
 
@@ -429,7 +568,15 @@
         <p>&copy; 2026 STEVEN. All Rights Reserved. | 天王教育 Tim Wong Education</p>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
+    <div class="sticky-cta-banner">
+        <div class="sticky-cta-text">
+            🌟 F4/5/6 課程 <span>限時免費試堂</span> 火熱預約中！
+        </div>
+        <a href="https://wa.me/85265572013?text=你好，我想預約免費試堂！" class="sticky-cta-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> 立即搶位
+        </a>
+    </div>
+
     <a href="https://wa.me/85265572013" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
