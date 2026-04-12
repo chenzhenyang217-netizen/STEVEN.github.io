@@ -53,9 +53,6 @@
 
         /* Navigation */
         nav { background: var(--white); padding: 0.5rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; height: 80px; }
-        <a href="#" onclick="checkVIP()" class="vip-btn" style="background-color: #ffcc00; color: #333; padding: 8px 15px; border-radius: 5px; font-weight: bold; text-decoration: none; margin-left: 15px;">
-    🔒 學生專屬問書區
-</a>
 
         /* Logo Styles */
         .logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; height: 100%; }
@@ -551,21 +548,6 @@
     <a href="https://wa.me/85265572013" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-<script>
-function checkVIP() {
-    // 彈出對話框問密碼
-    var password = prompt("【只限天王教育現有學生】\n請輸入本月 VIP 通行密碼：\n(如未有密碼，請 WhatsApp 向 Steven Sir 索取)");
-    
-    // 檢查密碼是否正確 (呢度嘅 "STEVEN2026" 你可以隨時自己改)
-    if (password === "STEVEN2026") { 
-        alert("密碼正確！歡迎進入學霸專區 🚀");
-        // 將下面條 Link 換做你嘅 Discord 或 Padlet 邀請連結
-        window.open("https://discord.gg/你嘅專屬邀請碼", "_blank"); 
-    } else if (password !== null && password !== "") {
-        // 密碼錯咗嘅提示
-        alert("密碼錯誤 ❌ 如果你係現有學生，請即刻 WhatsApp 聯絡 Steven Sir 拎密碼啦！");
-    }
-}
-</script>
+
 </body>
 </html>
