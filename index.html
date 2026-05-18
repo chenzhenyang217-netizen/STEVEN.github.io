@@ -21,9 +21,10 @@
     fbq('init', '924748117115622');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=924748117115622&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=924748117115622&ev=PageView&noscript=1"/>
+    </noscript>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STEVEN Sir | 沙田理科補習 | DSE Chemistry & Biology | 石門天王教育</title>
@@ -44,176 +45,886 @@
             --white: #ffffff;
             --zoom-blue: #2D8CFF;
             --yt-red: #FF0000;
+            --orange-btn: #FF6600; /* 新增鮮橙色 */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif; }
-        body { line-height: 1.6; color: var(--text); padding-bottom: 70px; background-color: #fff; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif; 
+        }
+        
+        body { 
+            line-height: 1.6; 
+            color: var(--text); 
+            padding-bottom: 70px; 
+            background-color: #fff; 
+        }
 
-        /* Navigation & Dropdown */
-        nav { background: var(--white); padding: 0.5rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; height: 80px; }
-        .logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; height: 100%; }
-        .logo-img { height: 60px; width: auto; margin-right: 15px; border-radius: 50%; } 
-        .logo-text { font-size: 1.5rem; font-weight: bold; color: var(--primary); display: flex; flex-direction: column; line-height: 1.2; }
-        .logo-sub { font-size: 0.8rem; color: #666; font-weight: normal; }
+        /* --- Navigation & Dropdown --- */
+        nav { 
+            background: var(--white); 
+            padding: 0.5rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            height: 80px; 
+        }
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: inherit; 
+            height: 100%; 
+        }
+        .logo-img { 
+            height: 60px; 
+            width: auto; 
+            margin-right: 15px; 
+            border-radius: 50%; 
+        } 
+        .logo-text { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            color: var(--primary); 
+            display: flex; 
+            flex-direction: column; 
+            line-height: 1.2; 
+        }
+        .logo-sub { 
+            font-size: 0.8rem; 
+            color: #666; 
+            font-weight: normal; 
+        }
         
-        .nav-links { display: flex; align-items: center; height: 100%; }
-        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; display: inline-block; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            height: 100%; 
+        }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text); 
+            font-weight: 500; 
+            display: inline-block; 
+            transition: 0.3s; 
+        }
+        .nav-links a:hover:not(.summer-nav-btn):not(.register-btn) { 
+            color: var(--primary); 
+        }
         
-        .nav-item { position: relative; display: flex; align-items: center; height: 100%; padding: 0 15px; }
+        .nav-item { 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            height: 100%; 
+            padding: 0 15px; 
+        }
         .dropdown-content {
-            display: none; position: absolute; top: 100%; left: 0;
-            background-color: white; min-width: 160px;
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0;
+            background-color: white; 
+            min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-            border-radius: 0 0 8px 8px; overflow: hidden; z-index: 1000;
+            border-radius: 0 0 8px 8px; 
+            overflow: hidden; 
+            z-index: 1000;
         }
         .dropdown-content a {
-            color: #333; padding: 12px 16px; display: block;
-            border-bottom: 1px solid #f0f0f0; margin-left: 0; font-size: 0.95rem;
+            color: #333; 
+            padding: 12px 16px; 
+            display: block;
+            border-bottom: 1px solid #f0f0f0; 
+            margin-left: 0; 
+            font-size: 0.95rem;
         }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background-color: #f8f9fa; color: var(--primary); }
-        .nav-item:hover .dropdown-content { display: block; }
+        .dropdown-content a:last-child { 
+            border-bottom: none; 
+        }
+        .dropdown-content a:hover { 
+            background-color: #f8f9fa; 
+            color: var(--primary); 
+        }
+        .nav-item:hover .dropdown-content { 
+            display: block; 
+        }
+
+        /* 導覽列鮮橙色暑期課程按鈕 */
+        .summer-nav-btn {
+            background-color: var(--orange-btn) !important;
+            color: white !important;
+            padding: 8px 18px !important;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .summer-nav-btn:hover {
+            transform: scale(1.08);
+            background-color: #e65c00 !important;
+        }
 
         .register-btn { 
-            background-color: var(--highlight) !important; color: #000000 !important; 
-            padding: 8px 18px !important; border-radius: 50px; font-weight: 900 !important; 
-            box-shadow: 0 4px 15px rgba(255, 255, 0, 0.4); transition: transform 0.2s; margin-left: 10px;
+            background-color: var(--highlight) !important; 
+            color: #000000 !important; 
+            padding: 8px 18px !important; 
+            border-radius: 50px; 
+            font-weight: 900 !important; 
+            box-shadow: 0 4px 15px rgba(255, 255, 0, 0.4); 
+            transition: transform 0.2s; 
+            margin-left: 10px;
         }
-        .register-btn:hover { transform: scale(1.08); background-color: #e6e600 !important; }
-        .vip-btn { color: #d4af37 !important; border: 1px solid #d4af37; padding: 6px 12px; border-radius: 5px; font-size: 0.85rem; margin-left: 10px; }
+        .register-btn:hover { 
+            transform: scale(1.08); 
+            background-color: #e6e600 !important; 
+        }
+        .vip-btn { 
+            color: #d4af37 !important; 
+            border: 1px solid #d4af37; 
+            padding: 6px 12px; 
+            border-radius: 5px; 
+            font-size: 0.85rem; 
+            margin-left: 10px; 
+        }
 
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1920'); background-size: cover; background-position: center; color: var(--white); padding: 100px 5%; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-        .hero-tags span { display: inline-block; background: var(--accent); color: var(--primary); padding: 5px 15px; border-radius: 20px; margin: 5px; font-weight: bold; font-size: 0.9rem; }
-        .cta-btn-hero { background-color: #25D366; color: white; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 20px; transition: transform 0.2s; }
-        .cta-btn-hero:hover { transform: scale(1.05); }
+        /* --- Hero Section --- */
+        .hero { 
+            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1920'); 
+            background-size: cover; 
+            background-position: center; 
+            color: var(--white); 
+            padding: 100px 5%; 
+            text-align: center; 
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            line-height: 1.2; 
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            margin-bottom: 2rem; 
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        .hero-tags span { 
+            display: inline-block; 
+            background: var(--accent); 
+            color: var(--primary); 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            margin: 5px; 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+        }
+        .cta-btn-hero { 
+            background-color: #25D366; 
+            color: white; 
+            padding: 15px 30px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            display: inline-block; 
+            margin-top: 20px; 
+            transition: transform 0.2s; 
+        }
+        .cta-btn-hero:hover { 
+            transform: scale(1.05); 
+        }
 
-        /* Stats */
-        .stats { display: flex; justify-content: space-around; padding: 40px 5%; background: var(--white); text-align: center; flex-wrap: wrap; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; z-index: 10; margin-top: -30px; border-radius: 10px; max-width: 1000px; margin-left: auto; margin-right: auto; }
-        .stat-item { flex: 1; min-width: 150px; margin: 10px; }
-        .stat-number { font-size: 2.5rem; font-weight: bold; color: var(--primary); display: block; }
+        /* --- Stats --- */
+        .stats { 
+            display: flex; 
+            justify-content: space-around; 
+            padding: 40px 5%; 
+            background: var(--white); 
+            text-align: center; 
+            flex-wrap: wrap; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            position: relative; 
+            z-index: 10; 
+            margin-top: -30px; 
+            border-radius: 10px; 
+            max-width: 1000px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        .stat-item { 
+            flex: 1; 
+            min-width: 150px; 
+            margin: 10px; 
+        }
+        .stat-number { 
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            color: var(--primary); 
+            display: block; 
+        }
 
         section { padding: 80px 5%; }
-        .section-title { font-size: 2rem; color: var(--primary); margin-bottom: 30px; border-left: 5px solid var(--accent); padding-left: 15px; }
+        .section-title { 
+            font-size: 2rem; 
+            color: var(--primary); 
+            margin-bottom: 30px; 
+            border-left: 5px solid var(--accent); 
+            padding-left: 15px; 
+        }
 
-        /* About Section */
-        .about { background: var(--light-bg); display: flex; flex-wrap: wrap; align-items: center; }
-        .about-text { flex: 1; min-width: 300px; padding-right: 40px; }
-        .about-img { flex: 1; min-width: 300px; height: 400px; background: #e0e0e0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        /* --- 2026 暑期課程專屬樣式 --- */
+        .summer-section { 
+            padding: 80px 5%; 
+            background: #fff; 
+        }
+        .summer-title { 
+            text-align: center; 
+            color: var(--primary); 
+            font-size: 2.5rem; 
+            margin-bottom: 10px; 
+        }
+        .summer-subtitle { 
+            text-align: center; 
+            color: #666; 
+            margin-bottom: 40px; 
+        }
+        .promo-banner { 
+            background: #fff3cd; 
+            border: 2px dashed #856404; 
+            padding: 20px; 
+            border-radius: 15px; 
+            text-align: center; 
+            max-width: 800px; 
+            margin: 0 auto 40px auto; 
+        }
+        .promo-banner h3 { 
+            color: #856404; 
+            font-size: 1.5rem; 
+            margin-bottom: 5px; 
+        }
+        .course-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .course-card { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 30px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border-top: 6px solid var(--primary); 
+            transition: 0.3s; 
+            position: relative;
+        }
+        .course-card:hover { 
+            transform: translateY(-10px); 
+        }
+        .card-tag { 
+            display: inline-block; 
+            background: #eef2f7; 
+            color: var(--primary); 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+        }
+        .course-card h3 { 
+            font-size: 1.4rem; 
+            color: #d32f2f; 
+            margin-bottom: 15px; 
+        }
+        .features-list { 
+            list-style: none; 
+            margin-bottom: 20px; 
+            text-align: left; 
+        }
+        .features-list li { 
+            margin-bottom: 10px; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
+            font-size: 0.95rem; 
+        }
+        .features-list li i { 
+            color: #28a745; 
+            margin-top: 5px; 
+        }
+        .timetable-box { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            border-radius: 10px; 
+            border-left: 4px solid var(--primary); 
+            text-align: left; 
+        }
+        .timetable-box p { 
+            margin: 5px 0; 
+            font-weight: bold; 
+            font-size: 0.95rem; 
+        }
+        .summer-cta { 
+            background-color: var(--primary); 
+            color: white; 
+            padding: 12px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: block; 
+            margin-top: 20px; 
+            text-align: center; 
+            transition: 0.3s;
+        }
+        .summer-cta:hover { 
+            opacity: 0.9; 
+            transform: scale(1.02); 
+        }
 
-        /* Location Section */
-        .location-section { background: #fff; padding-top: 40px; }
-        .location-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; max-width: 1100px; margin: 0 auto; }
-        .location-info { flex: 1; min-width: 300px; }
-        .location-map { flex: 1.2; min-width: 300px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; }
-        .location-map img { width: 100%; height: auto; display: block; transition: 0.3s; }
-        .location-map img:hover { transform: scale(1.02); }
-        .info-card { background: #fdfdfd; border-radius: 12px; padding: 30px; border-left: 6px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
-        .info-card h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 20px; }
-        .info-item { display: flex; align-items: flex-start; margin-bottom: 18px; }
-        .info-item i { color: var(--primary); margin-right: 15px; margin-top: 5px; font-size: 1.2rem; width: 20px; text-align: center; }
-        .info-label { font-weight: bold; display: block; color: #555; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 2px; }
-        .info-text { color: #222; font-size: 1.05rem; }
+        /* --- About Section --- */
+        .about { 
+            background: var(--light-bg); 
+            display: flex; 
+            flex-wrap: wrap; 
+            align-items: center; 
+        }
+        .about-text { 
+            flex: 1; 
+            min-width: 300px; 
+            padding-right: 40px; 
+        }
+        .about-img { 
+            flex: 1; 
+            min-width: 300px; 
+            height: 400px; 
+            background: #e0e0e0; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #666; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        }
 
-        /* Schools List */
-        .schools-section { background: var(--primary); color: white; text-align: center; padding: 60px 5%; }
-        .schools-title { color: var(--accent); font-size: 2rem; margin-bottom: 10px; font-weight: bold; }
-        .schools-subtitle { color: #ccc; margin-bottom: 40px; font-size: 1.1rem; letter-spacing: 2px; }
-        .schools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .school-category { text-align: left; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
-        .school-category h3 { font-size: 1.5rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid; display: inline-block; }
+        /* --- Location Section --- */
+        .location-section { 
+            background: #fff; 
+            padding-top: 40px; 
+        }
+        .location-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 40px; 
+            align-items: flex-start; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .location-info { 
+            flex: 1; 
+            min-width: 300px; 
+        }
+        .location-map { 
+            flex: 1.2; 
+            min-width: 300px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border: 1px solid #eee; 
+        }
+        .location-map img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: 0.3s; 
+        }
+        .location-map img:hover { 
+            transform: scale(1.02); 
+        }
+        .info-card { 
+            background: #fdfdfd; 
+            border-radius: 12px; 
+            padding: 30px; 
+            border-left: 6px solid var(--primary); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+            text-align: left; 
+        }
+        .info-card h2 { 
+            color: var(--primary); 
+            font-size: 1.8rem; 
+            margin-bottom: 20px; 
+        }
+        .info-item { 
+            display: flex; 
+            align-items: flex-start; 
+            margin-bottom: 18px; 
+        }
+        .info-item i { 
+            color: var(--primary); 
+            margin-right: 15px; 
+            margin-top: 5px; 
+            font-size: 1.2rem; 
+            width: 20px; 
+            text-align: center; 
+        }
+        .info-label { 
+            font-weight: bold; 
+            display: block; 
+            color: #555; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            margin-bottom: 2px; 
+        }
+        .info-text { 
+            color: #222; 
+            font-size: 1.05rem; 
+        }
+
+        /* --- Schools List --- */
+        .schools-section { 
+            background: var(--primary); 
+            color: white; 
+            text-align: center; 
+            padding: 60px 5%; 
+        }
+        .schools-title { 
+            color: var(--accent); 
+            font-size: 2rem; 
+            margin-bottom: 10px; 
+            font-weight: bold; 
+        }
+        .schools-subtitle { 
+            color: #ccc; 
+            margin-bottom: 40px; 
+            font-size: 1.1rem; 
+            letter-spacing: 2px; 
+        }
+        .schools-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .school-category { 
+            text-align: left; 
+            background: rgba(255,255,255,0.05); 
+            padding: 30px; 
+            border-radius: 10px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+        }
+        .school-category h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 20px; 
+            padding-bottom: 10px; 
+            border-bottom: 2px solid; 
+            display: inline-block; 
+        }
         .elite-cat h3 { color: #FFD700; border-color: #FFD700; }
         .remedial-cat h3 { color: #4FC3F7; border-color: #4FC3F7; }
-        .school-list { list-style: none; columns: 1; }
-        .school-list li { margin-bottom: 12px; font-size: 1rem; color: #eee; display: flex; align-items: center; }
+        .school-list { 
+            list-style: none; 
+            columns: 1; 
+        }
+        .school-list li { 
+            margin-bottom: 12px; 
+            font-size: 1rem; 
+            color: #eee; 
+            display: flex; 
+            align-items: center; 
+        }
 
-        /* Features */
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .feature-card { padding: 30px; border: 1px solid #eee; border-radius: 10px; text-align: center; transition: 0.3s; background: white; }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--primary); }
-        .feature-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        /* --- Features --- */
+        .feature-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+            margin-top: 40px; 
+        }
+        .feature-card { 
+            padding: 30px; 
+            border: 1px solid #eee; 
+            border-radius: 10px; 
+            text-align: center; 
+            transition: 0.3s; 
+            background: white; 
+        }
+        .feature-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            border-color: var(--primary); 
+        }
+        .feature-icon { 
+            font-size: 3rem; 
+            margin-bottom: 20px; 
+            display: block; 
+        }
 
-        /* Videos */
-        .video-section { background: #fff; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .video-card { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; text-decoration: none; color: inherit; display: block; }
-        .video-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-        .video-thumbnail { width: 100%; height: 200px; background: #000; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .video-thumbnail img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-        .play-icon { font-size: 3rem; color: white; position: absolute; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .video-info { padding: 20px; }
-        .video-info h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
+        /* --- Videos --- */
+        .video-section { 
+            background: #fff; 
+        }
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 40px; 
+        }
+        .video-card { 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            transition: 0.3s; 
+            text-decoration: none; 
+            color: inherit; 
+            display: block; 
+        }
+        .video-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2); 
+        }
+        .video-thumbnail { 
+            width: 100%; 
+            height: 200px; 
+            background: #000; 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; 
+        }
+        .video-thumbnail img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            opacity: 0.8; 
+        }
+        .play-icon { 
+            font-size: 3rem; 
+            color: white; 
+            position: absolute; 
+            z-index: 2; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+        }
+        .video-info { 
+            padding: 20px; 
+        }
+        .video-info h3 { 
+            font-size: 1.1rem; 
+            margin-bottom: 10px; 
+            color: var(--primary); 
+        }
 
-        /* 課堂形式 (Lesson Formats) - 修復圖片樣式 */
+        /* --- Lesson Formats --- */
         .format-section { background: var(--light-bg); }
-        .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .format-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; position: relative; }
-        .format-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .format-image { width: 100%; height: 200px; overflow: hidden; }
-        .format-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .format-card:hover .format-image img { transform: scale(1.1); }
-        .format-badge { position: absolute; top: 180px; right: 20px; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .format-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .format-card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            border: 1px solid #eee; 
+            position: relative; 
+        }
+        .format-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+        }
+        .format-image { 
+            width: 100%; 
+            height: 200px; 
+            overflow: hidden; 
+        }
+        .format-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: 0.5s; 
+        }
+        .format-card:hover .format-image img { 
+            transform: scale(1.1); 
+        }
+        .format-badge { 
+            position: absolute; 
+            top: 180px; 
+            right: 20px; 
+            padding: 5px 15px; 
+            border-radius: 50px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            z-index: 10; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
         .badge-live { background: #ffebee; color: #d32f2f; }
         .badge-zoom { background: #e3f2fd; color: #1976d2; }
         .badge-video { background: #e8f5e9; color: #388e3c; }
-        .format-content { padding: 30px; padding-top: 25px; }
-        .format-content h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .format-content ul { list-style: none; }
-        .format-content li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; color: #555; }
-        .format-content li i { color: var(--primary); margin-top: 5px; font-size: 0.9rem; }
-        .highlight-text { color: var(--yt-red); font-weight: bold; }
+        .format-content { 
+            padding: 30px; 
+            padding-top: 25px; 
+        }
+        .format-content h3 { 
+            font-size: 1.5rem; 
+            color: var(--primary); 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        .format-content ul { 
+            list-style: none; 
+        }
+        .format-content li { 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
+            color: #555; 
+        }
+        .format-content li i { 
+            color: var(--primary); 
+            margin-top: 5px; 
+            font-size: 0.9rem; 
+        }
+        .highlight-text { 
+            color: var(--yt-red); 
+            font-weight: bold; 
+        }
 
-        /* Timetable */
+        /* --- Timetable --- */
         .timetable-section { background: #fff; }
-        .table-container { overflow-x: auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th { background: var(--primary); color: white; padding: 15px; text-align: left; }
-        td { padding: 15px; border-bottom: 1px solid #eee; color: #555; vertical-align: middle; }
+        .table-container { 
+            overflow-x: auto; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            border: 1px solid #eee; 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 600px; 
+        }
+        th { 
+            background: var(--primary); 
+            color: white; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        td { 
+            padding: 15px; 
+            border-bottom: 1px solid #eee; 
+            color: #555; 
+            vertical-align: middle; 
+        }
         tr:hover td { background: #f0f4f8; }
-        .subject-tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-right: 5px; }
+        .subject-tag { 
+            display: inline-block; 
+            padding: 3px 8px; 
+            border-radius: 4px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            margin-right: 5px; 
+        }
         .chem { background: #e3f2fd; color: #1976d2; }
         .bio { background: #e8f5e9; color: #388e3c; }
 
-        /* Results Wall */
-        .results-wall { background: #eef2f5; padding: 80px 5%; }
-        .results-header-text { text-align: center; margin-bottom: 50px; }
-        .god-tier-badge { display: inline-block; background: var(--accent); color: var(--primary); padding: 8px 20px; border-radius: 30px; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(255,215,0,0.4); }
-        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .result-card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-top: 5px solid var(--primary); position: relative; transition: transform 0.3s; }
+        /* --- Results Wall --- */
+        .results-wall { 
+            background: #eef2f5; 
+            padding: 80px 5%; 
+        }
+        .results-header-text { 
+            text-align: center; 
+            margin-bottom: 50px; 
+        }
+        .god-tier-badge { 
+            display: inline-block; 
+            background: var(--accent); 
+            color: var(--primary); 
+            padding: 8px 20px; 
+            border-radius: 30px; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            margin-bottom: 15px; 
+            box-shadow: 0 4px 10px rgba(255,215,0,0.4); 
+        }
+        .result-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .result-card { 
+            background: white; 
+            border-radius: 15px; 
+            padding: 25px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06); 
+            border-top: 5px solid var(--primary); 
+            position: relative; 
+            transition: transform 0.3s; 
+        }
         .result-card:hover { transform: translateY(-5px); }
-        .school-badge { font-size: 0.85rem; background: #e3f2fd; color: #003366; padding: 5px 12px; border-radius: 6px; display: inline-block; margin-bottom: 15px; font-weight: bold; border: 1px solid #bbdefb; }
-        .grade-jump { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; color: #444; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .school-badge { 
+            font-size: 0.85rem; 
+            background: #e3f2fd; 
+            color: #003366; 
+            padding: 5px 12px; 
+            border-radius: 6px; 
+            display: inline-block; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+            border: 1px solid #bbdefb; 
+        }
+        .grade-jump { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+            color: #444; 
+            display: flex; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
         .jump-arrow { color: #ccc; font-size: 1rem; }
         .grade-before { text-decoration: line-through; color: #999; }
-        .grade-after { color: #e67e22; font-size: 1.6rem; text-shadow: 1px 1px 0px rgba(230,126,34,0.2); }
-        .student-quote { font-style: italic; color: #555; background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent); position: relative; }
-        .results-footer { text-align: center; margin-top: 60px; }
-        .next-one { font-size: 2.5rem; color: var(--primary); font-weight: bold; margin-bottom: 25px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .grade-after { 
+            color: #e67e22; 
+            font-size: 1.6rem; 
+            text-shadow: 1px 1px 0px rgba(230,126,34,0.2); 
+        }
+        .student-quote { 
+            font-style: italic; 
+            color: #555; 
+            background: #f8f9fa; 
+            padding: 15px; 
+            border-radius: 8px; 
+            border-left: 4px solid var(--accent); 
+            position: relative; 
+        }
+        .results-footer { 
+            text-align: center; 
+            margin-top: 60px; 
+        }
+        .next-one { 
+            font-size: 2.5rem; 
+            color: var(--primary); 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); 
+        }
         .next-one span { color: #e67e22; }
 
-        /* Contact & Form Section */
-        .cta-section { text-align: center; background: var(--light-bg); }
-        .form-container { background: #fff; border-radius: 15px; overflow: hidden; margin-top: 30px; border: 1px solid #eee; padding: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 640px; margin-left: auto; margin-right: auto; margin-bottom: 30px; }
+        /* --- Contact & Form Section --- */
+        .cta-section { 
+            text-align: center; 
+            background: var(--light-bg); 
+        }
+        .form-container { 
+            background: #fff; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            margin-top: 30px; 
+            border: 1px solid #eee; 
+            padding: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            max-width: 640px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            margin-bottom: 30px; 
+        }
 
-        footer { background: #333; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; padding-bottom: 90px; }
+        footer { 
+            background: #333; 
+            color: #aaa; 
+            text-align: center; 
+            padding: 20px; 
+            font-size: 0.9rem; 
+            padding-bottom: 90px; 
+        }
 
-        /* Stickies */
-        .sticky-cta-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 51, 102, 0.95); backdrop-filter: blur(8px); color: white; display: flex; justify-content: center; align-items: center; padding: 12px 20px; box-shadow: 0 -4px 15px rgba(0,0,0,0.2); z-index: 1000; gap: 20px; }
+        /* --- Stickies --- */
+        .sticky-cta-banner { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            background: rgba(0, 51, 102, 0.95); 
+            backdrop-filter: blur(8px); 
+            color: white; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 12px 20px; 
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2); 
+            z-index: 1000; 
+            gap: 20px; 
+        }
         .sticky-cta-text { font-size: 1.1rem; font-weight: bold; }
         .sticky-cta-text span { color: var(--accent); }
-        .sticky-cta-btn { background: #25D366; color: white; padding: 8px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: transform 0.3s; font-size: 1rem; }
-        .whatsapp-float { position: fixed; bottom: 80px; right: 20px; background: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; text-decoration: none; transition: transform 0.3s; }
+        .sticky-cta-btn { 
+            background: #25D366; 
+            color: white; 
+            padding: 8px 25px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: transform 0.3s; 
+            font-size: 1rem; 
+        }
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 80px; 
+            right: 20px; 
+            background: #25D366; 
+            color: white; 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 30px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            z-index: 999; 
+            text-decoration: none; 
+            transition: transform 0.3s; 
+        }
         .whatsapp-float:hover { transform: scale(1.1); }
 
+        /* --- Media Queries --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
-            .nav-links { display: flex; flex-direction: column; width: 100%; gap: 10px; margin-top: 10px;}
+            .nav-links { 
+                display: flex; 
+                flex-direction: column; 
+                width: 100%; 
+                gap: 10px; 
+                margin-top: 10px;
+            }
             .nav-item { padding: 0; }
-            .dropdown-content { position: static; box-shadow: none; display: none; }
+            .dropdown-content { 
+                position: static; 
+                box-shadow: none; 
+                display: none; 
+            }
             .nav-item:hover .dropdown-content { display: block; }
             nav { flex-direction: column; height: auto; padding: 15px; }
             .location-container { flex-direction: column; }
@@ -232,7 +943,10 @@
                 <span class="logo-sub">沙田石門天王教育理科 | 奪星專家</span>
             </div>
         </a>
+        
         <div class="nav-links">
+            <div class="nav-item"><a href="#summer-course" class="summer-nav-btn">暑期課程</a></div>
+            
             <div class="nav-item">
                 <a href="#about">關於我們 <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                 <div class="dropdown-content">
@@ -247,9 +961,9 @@
                     <a href="#timetable">常規時間表</a>
                 </div>
             </div>
-            <a href="#results">最強戰績</a>
-            <a href="#" onclick="checkVIP()" class="vip-btn"><i class="fas fa-lock"></i> VIP 問書區</a>
-            <a href="#contact" class="register-btn">🔥 立即報名</a>
+            <div class="nav-item"><a href="#results">最強戰績</a></div>
+            <div class="nav-item"><a href="#" onclick="checkVIP()" class="vip-btn"><i class="fas fa-lock"></i> VIP 問書區</a></div>
+            <div class="nav-item"><a href="#contact" class="register-btn">🔥 立即報名</a></div>
         </div>
     </nav>
 
@@ -270,6 +984,69 @@
         <div class="stat-item"><span class="stat-number">100%</span><span>用心教學</span></div>
         <div class="stat-item"><span class="stat-number">24hr</span><span>WhatsApp 支援</span></div>
         <div class="stat-item"><span class="stat-number">10+</span><span>團隊奪星總數</span></div>
+    </section>
+
+    <section id="summer-course" class="summer-section">
+        <h2 class="summer-title">🔥 2026 暑期王牌課程 (15/7 - 1/9)</h2>
+        <p class="summer-subtitle">「暑假沒有校內負擔，是補底或突圍的唯一黃金機會！」</p>
+
+        <div class="promo-banner">
+            <h3>🎁 暑期限定：多人同行 瘋狂回贈</h3>
+            <p><strong>二人同行 各減 $100 | 三人同行 每人減 $500</strong><br>
+            <span style="font-size: 0.9rem; color: #666;">*同行時，其中 1 人或 2 人必須是新生才可享用優惠</span></p>
+        </div>
+
+        <div class="course-grid">
+            <div class="course-card">
+                <span class="card-tag">升 F.4 暑期啟蒙班</span>
+                <h3>🚀 贏在起跑線：鎖定 DSE 優勢</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">拒絕死背，完成從 IS 到 DSE 的思維跳躍！</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>直擊核心：</strong>拋棄廢話，只教考評局要求。</li>
+                    
+                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>邏輯拆解：</strong>用日常思維化解抽象理科。</li>
+                    
+                    <li><i class="fas fa-check-circle"></i> <strong>超前部署：</strong>預習 F.4 最易失分地獄課題。</li>
+                </ul>
+                <div class="timetable-box">
+                    <p>🧬 Biology: 逢星期三 1:30 - 3:00 PM</p>
+                    <p>🧪 Chemistry: 逢星期四 1:30 - 3:00 PM</p>
+                </div>
+                <a href="https://wa.me/85265572013?text=你好，我想報名升F4暑期課程" class="summer-cta">WhatsApp立即報名</a>
+            </div>
+
+            <div class="course-card" style="border-top-color: #d32f2f;">
+                <span class="card-tag" style="color:#d32f2f;">升 F.5 暑期拔尖班</span>
+                <h3 style="color:#d32f2f; white-space: nowrap; font-size: 1.3rem;">⚡ 直擊 Chem/Bio 最重要關鍵課題</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">攻克 Redox、Genetics，保住神科入場券！</p>
+                <ul class="features-list">
+                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>星級筆記：</strong>獨家精準筆記，秒殺最深概念。</li>
+                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>奪星框架：</strong>傳授名校 5** 答題邏輯。</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>避坑指南：</strong>拆解歷屆考生 80% 常犯錯誤。</li>
+                </ul>
+                <div class="timetable-box" style="border-left-color: #d32f2f;">
+                    <p>🧬 Biology: 逢星期三 9:15 - 10:45 AM</p>
+                    <p>🧪 Chemistry: 逢星期四 9:15 - 10:45 AM</p>
+                </div>
+                <a href="https://wa.me/85265572013?text=你好，我想報名升F5暑期課程" class="summer-cta" style="background:#d32f2f;">WhatsApp立即報名</a>
+            </div>
+
+            <div class="course-card" style="border-top-color: #d4af37;">
+                <span class="card-tag" style="color:#d4af37;">升 F.6 王牌衝刺班</span>
+                <h3 style="color:#333;">👑 最後直線衝刺 + 地獄操卷班</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">時間無多！用考評局邏輯在最後 200 天逆天改命！</p>
+                <ul class="features-list">
+                    <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>地獄操卷：</strong>嚴選神校 Mock 卷，限時實戰訓練。</li>
+                    <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>Keywords：</strong>揭露考評局「寫漏即扣分」關鍵字。</li>
+                    <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>精準刷題：</strong>不再盲目對答案，教你如何拆題。</li>
+                </ul>
+                <div class="timetable-box" style="border-left-color: #d4af37;">
+                    <p style="white-space: nowrap;">🧬 Biology: 逢星期三 11:00 AM - 12:30 PM</p>
+                    <p style="white-space: nowrap;">🧪 Chemistry: 逢星期四 11:00 AM - 12:30 PM</p>
+                </div>
+                <a href="https://wa.me/85265572013?text=你好，我想報名升F6地獄衝刺班" class="summer-cta" style="background:#333;">WhatsApp立即報名</a>
+            </div>
+        </div>
     </section>
 
     <section id="about" class="about">
@@ -543,7 +1320,6 @@
             <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
 
-        
         <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
         <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
@@ -579,3 +1355,4 @@
 
 </body>
 </html>
+
