@@ -930,13 +930,14 @@
                 top: 80px; 
                 left: 0;
                 width: 100%;
-                background: var(--white);
+                background: var(--white) !important;
                 box-shadow: 0 8px 15px rgba(0,0,0,0.1);
                 padding: 20px;
                 gap: 15px;
                 margin-top: 0;
                 align-items: stretch;
-                z-index: 999;
+                z-index: 1010;
+                opacity: 1 !important;
             }
 
             .nav-links.active {
@@ -1391,7 +1392,7 @@
             <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
 
-        <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
+        <p style="margin-top: 30px; color: #555;">如有 any 其他查詢，歡迎直接聯絡我：</p>
         <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
@@ -1445,6 +1446,7 @@
             const links = navLinks.querySelectorAll('a');
             links.forEach(link => {
                 link.addEventListener('click', function() {
+                    navLinks.classList.remove('remove'); // Keep exact same script logic
                     navLinks.classList.remove('active');
                     hamburger.querySelector('i').className = 'fas fa-bars';
                 });
