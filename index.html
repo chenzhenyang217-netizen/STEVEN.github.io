@@ -30,8 +30,8 @@
     <title>STEVEN Sir | 沙田理科補習 | DSE Chemistry & Biology | 石門天王教育</title>
     <meta name="description" content="沙田石門天王教育 STEVEN Sir，專攻 DSE Chemistry 補習及 Biology 補習。作為沙田理科補習首選，我們提供私補式貼心教學及 24 小時問書服務，助你輕鬆應付大考及 DSE。">
     
-    <link rel="icon" href="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" type="image/jpeg">
-    <link rel="apple-touch-icon" href="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true">
+    <link rel="icon" href="steven_website_logo.png?v=3" type="image/png">
+    <link rel="apple-touch-icon" href="steven_website_logo.png?v=3">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -45,7 +45,7 @@
             --white: #ffffff;
             --zoom-blue: #2D8CFF;
             --yt-red: #FF0000;
-            --orange-btn: #FF6600; /* 新增鮮橙色 */
+            --orange-btn: #FF6600; 
         }
 
         * { 
@@ -74,7 +74,6 @@
             top: 0; 
             z-index: 1000; 
             height: 80px; 
-            transition: all 0.3s ease;
         }
         .logo-container { 
             display: flex; 
@@ -157,28 +156,17 @@
             display: block; 
         }
 
-        /* 漢堡按鈕樣式（預設隱藏） */
-        .hamburger-toggle {
+        /* 漢堡選單按鈕 (預設隱藏) */
+        .menu-toggle {
             display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
             cursor: pointer;
-            z-index: 1001;
-            padding: 0;
-        }
-        .hamburger-toggle span {
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-            border-radius: 2px;
-            transition: all 0.3s ease-in-out;
+            background: none;
+            border: none;
+            outline: none;
         }
 
-        /* 導覽列鮮橙色暑期課程按鈕 */
         .summer-nav-btn {
             background-color: var(--orange-btn) !important;
             color: white !important;
@@ -931,114 +919,64 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* --- 📱 跨平台 RWD 手機版精確重構樣式 --- */
+        /* --- 手機版響應式樣式修正 --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            
-            /* 固定與精簡手機版頂部白色導航欄高度 */
             nav { 
                 flex-direction: row; 
-                height: 70px; 
-                padding: 0 20px; 
                 justify-content: space-between;
+                height: 80px; 
+                padding: 0.5rem 5%; 
             }
-            .logo-img {
-                height: 45px;
-                margin-right: 10px;
-            }
-            .logo-text {
-                font-size: 1.2rem;
-            }
-            .logo-sub {
-                font-size: 0.7rem;
+            
+            .menu-toggle {
+                display: block;
             }
 
-            /* 顯示漢堡選單按鈕 */
-            .hamburger-toggle {
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                height: auto;
+                gap: 15px;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
                 display: flex;
             }
 
-            /* 手機版下拉選單框架重構 - 縮小白色覆蓋範圍 */
-            .nav-links { 
-                position: fixed; 
-                top: 70px; /* 剛好卡在頂部導航欄正下方 */
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98); 
-                backdrop-filter: blur(10px);
-                flex-direction: column; 
-                align-items: center;
-                justify-content: flex-start;
-                gap: 0; 
-                padding: 15px 0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                height: auto;
-                
-                /* 預設隱藏與平滑彈出動畫 */
-                opacity: 0;
-                transform: translateY(-15px);
-                pointer-events: none;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            /* 當漢堡選單被點擊激活時 */
-            .nav-links.active {
-                opacity: 1;
-                transform: translateY(0);
-                pointer-events: auto;
-            }
-
             .nav-item { 
+                padding: 10px 0; 
                 width: 100%;
-                padding: 0; 
                 justify-content: center;
-                height: auto;
+                flex-direction: column;
             }
             
-            .nav-links a {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                font-size: 1.05rem;
-            }
-
-            /* 手機版內建子選單調整 */
             .dropdown-content { 
                 position: static; 
                 box-shadow: none; 
                 display: none; 
                 width: 100%;
-                background-color: #fcfcfc;
+                text-align: center;
+                background: #f9f9f9;
             }
-            .dropdown-content a {
-                padding: 8px 0;
-                font-size: 0.95rem;
-                background: none;
-            }
+            
             .nav-item:hover .dropdown-content { 
                 display: block; 
             }
 
-            /* 按鈕按比例微調，防止橫向撐開 */
-            .summer-nav-btn, .register-btn, .vip-btn {
-                width: 80% !important;
-                margin: 6px auto !important;
-                padding: 8px 0 !important;
-                text-align: center;
+            .register-btn {
+                margin-left: 0;
+                margin-top: 5px;
             }
 
-            /* 漢堡按鈕點擊後的 X 型動畫特效 */
-            .hamburger-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            .hamburger-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .hamburger-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-
-            /* 底部其餘元件排版修正 */
+            .hero h1 { font-size: 2rem; }
             .location-container { flex-direction: column; }
             .sticky-cta-banner { flex-direction: column; padding: 10px; gap: 10px; }
             .whatsapp-float { bottom: 120px; right: 15px; width: 50px; height: 50px; font-size: 25px; }
@@ -1049,20 +987,18 @@
 
     <nav>
         <a href="#" class="logo-container">
-            <img src="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" class="logo-img" alt="沙田理科補習 Steven Sir Logo">
+            <img src="steven_website_logo.png" class="logo-img" alt="沙田理科補習 Steven Sir Logo">
             <div class="logo-text">
                 Steven Sir 
                 <span class="logo-sub">沙田石門天王教育理科 | 奪星專家</span>
             </div>
         </a>
-
-        <button class="hamburger-toggle" id="mobile-hamburger-btn" aria-label="切換選單">
-            <span></span>
-            <span></span>
-            <span></span>
+        
+        <button class="menu-toggle" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
         </button>
         
-        <div class="nav-links" id="mobile-nav-links">
+        <div class="nav-links" id="nav-menu-links">
             <div class="nav-item"><a href="#summer-course" class="summer-nav-btn">暑期課程</a></div>
             
             <div class="nav-item">
@@ -1116,14 +1052,12 @@
 
         <div class="course-grid">
             <div class="course-card">
-                <span class="card-tag">升 F.4 暑期啟蒙班</span>
+                <span class="card-tag">升 F.4 暑期啟盟班</span>
                 <h3>🚀 贏在起跑線：鎖定 DSE 優勢</h3>
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">拒絕死背，完成從 IS 到 DSE 的思維跳躍！</p>
                 <ul class="features-list">
                     <li><i class="fas fa-check-circle"></i> <strong>直擊核心：</strong>拋棄廢話，只教考評局要求。</li>
-                    
-                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>邏輯拆解：</strong>用日常思維化解抽象理科。</li>
-                    
+                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>邏輯拆解：</strong>用日常思維化解抽象理科.</li>
                     <li><i class="fas fa-check-circle"></i> <strong>超前部署：</strong>預習 F.4 最易失分地獄課題。</li>
                 </ul>
                 <div class="timetable-box">
@@ -1160,7 +1094,7 @@
                 </ul>
                 <div class="timetable-box" style="border-left-color: #d4af37;">
                     <p style="white-space: nowrap;">🧬 Biology: 逢星期三 11:00 AM - 12:30 PM</p>
-                    <p style="white-space: nowrap;">🧪 Chemistry: 逢星期四 11:00 AM - 12:30 PM</p>
+                    <p style="white-space: nowrap;">🧪 Chemistry: 逢星期快 11:00 AM - 12:30 PM</p>
                 </div>
                 <a href="https://wa.me/85265572013?text=你好，我想報名升F6地獄衝刺班" class="summer-cta" style="background:#333;">WhatsApp立即報名</a>
             </div>
@@ -1180,7 +1114,7 @@
             <p>我不僅教你知識，更教你考試的策略。從題目設計到批改，我與團隊都親力親為，致力成為全沙田理科補習最高質素的選擇。</p>
         </div>
         <div class="about-img">
-            <img src="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" style="width:100%; height:100%; object-fit:cover;" alt="沙田 Chemistry 補習 及 Biology 補習名師 Steven Sir">
+            <img src="steven_website_logo.png" style="width:100%; height:100%; object-fit:cover;" alt="沙田 Chemistry 補習 及 Biology 補習名師 Steven Sir">
         </div>
     </section>
 
@@ -1423,7 +1357,7 @@
             </div>
         </div>
         <div class="results-footer">
-            <div class="next-one">下一個爆分嘅，<span>就係你！🫵</span></div>
+            <div class="next-one">下一個爆分嘅，<span>就係你🫵</span></div>
             <a href="https://wa.me/85265572013?text=你好，我想了解沙田理科補習！" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
                 <i class="fab fa-whatsapp"></i> 立即 WhatsApp 留位
             </a>
@@ -1438,7 +1372,7 @@
             <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
 
-        <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
+        <p style="margin-top: 30px; color: #555;">如有 any 其他查詢，歡迎直接聯絡我：</p>
         <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
@@ -1460,6 +1394,24 @@
     </a>
 
     <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navMenuLinks = document.getElementById('nav-menu-links');
+
+    // 點擊漢堡按鈕開關選單
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenuLinks.classList.toggle('active');
+    });
+
+    // 點擊手機版選單內的任何連結時，自動關閉選單（優化體驗）
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                navMenuLinks.classList.remove('active');
+            }
+        });
+    });
+
     function checkVIP() {
         var password = prompt("【天王教育現有學生專區】\n請輸入本月 VIP 通行密碼：\n(如未有密碼，請 WhatsApp 聯絡 Steven Sir)");
         if (password === "STEVEN2026") { 
@@ -1469,34 +1421,6 @@
             alert("密碼錯誤 ❌ 請聯絡 Steven Sir 獲取最新密碼。");
         }
     }
-
-    // 漢堡選單邏輯控制
-    const hamburgerBtn = document.getElementById('mobile-hamburger-btn');
-    const navLinks = document.getElementById('mobile-nav-links');
-    const allNavAnchors = document.querySelectorAll('#mobile-nav-links a');
-
-    // 點擊漢堡按鈕開關選單
-    hamburgerBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        hamburgerBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // 點擊選單內的導航連結時，自動關閉選單（防止遮擋跳轉後的網頁內容）
-    allNavAnchors.forEach(anchor => {
-        anchor.addEventListener('click', function() {
-            hamburgerBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    });
-
-    // 點擊網頁外部其他任意地方時自動關閉手機選單
-    document.addEventListener('click', function(e) {
-        if (!hamburgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburgerBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
     </script>
 
 </body>
