@@ -28,10 +28,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STEVEN Sir | 沙田理科補習 | DSE Chemistry & Biology | 石門天王教育</title>
-    <meta name="description" content="沙田石門天王教育 STEVEN Sir，專攻 DSE Chemistry 補習及 Biology 補習。作為沙田理科補習首選，我們提供私補式貼心教學及 24 小時問書服務，助你輕鬆應付大考及 DSE。">
+    <meta name="description" content="沙田石門天王教育 STEVEN Sir，專攻 DSE Chemistry 補習及 Biology 補習。作為沙田理科補習首選，我們 provide 私補式貼心教學及 24 小時問書服務，助你輕鬆應付大考及 DSE。">
     
-    <link rel="icon" href="steven_website_logo.png?v=3" type="image/png">
-    <link rel="apple-touch-icon" href="steven_website_logo.png?v=3">
+    <link rel="icon" href="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" type="image/jpeg">
+    <link rel="apple-touch-icon" href="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -62,7 +62,7 @@
             background-color: #fff; 
         }
 
-        /* --- Navigation & Dropdown --- */
+        /* --- Navigation --- */
         nav { 
             background: var(--white); 
             padding: 0.5rem 5%; 
@@ -156,15 +156,13 @@
             display: block; 
         }
 
-        /* 漢堡選單按鈕 (預設隱藏) */
-        .menu-toggle {
+        .hamburger {
             display: none;
             font-size: 1.8rem;
             color: var(--primary);
             cursor: pointer;
-            background: none;
-            border: none;
-            outline: none;
+            z-index: 1005;
+            padding: 5px;
         }
 
         .summer-nav-btn {
@@ -367,18 +365,6 @@
         .features-list li i { 
             color: #28a745; 
             margin-top: 5px; 
-        }
-        .timetable-box { 
-            background: #f8f9fa; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border-left: 4px solid var(--primary); 
-            text-align: left; 
-        }
-        .timetable-box p { 
-            margin: 5px 0; 
-            font-weight: bold; 
-            font-size: 0.95rem; 
         }
         .summer-cta { 
             background-color: var(--primary); 
@@ -919,64 +905,81 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* --- 手機版響應式樣式修正 --- */
+        /* --- Responsive Queries --- */
         @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            
             nav { 
                 flex-direction: row; 
-                justify-content: space-between;
                 height: 80px; 
-                padding: 0.5rem 5%; 
+                padding: 0 5%; 
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                width: 100%;
             }
-            
-            .menu-toggle {
-                display: block;
+
+            .hamburger { 
+                display: block; 
             }
 
             .nav-links { 
                 display: none; 
                 flex-direction: column; 
                 position: absolute;
-                top: 80px;
+                top: 80px; 
                 left: 0;
                 width: 100%;
-                background: white;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                padding: 20px 0;
-                height: auto;
+                background: var(--white);
+                box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+                padding: 20px;
                 gap: 15px;
+                margin-top: 0;
+                align-items: stretch;
                 z-index: 999;
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
 
             .nav-item { 
-                padding: 10px 0; 
+                padding: 5px 0; 
                 width: 100%;
-                justify-content: center;
                 flex-direction: column;
+                align-items: center;
+                height: auto;
             }
-            
+
+            .nav-item a {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
             .dropdown-content { 
                 position: static; 
                 box-shadow: none; 
                 display: none; 
                 width: 100%;
                 text-align: center;
-                background: #f9f9f9;
+                background: #f8f9fa;
+                border-radius: 8px;
+                margin-top: 5px;
             }
-            
             .nav-item:hover .dropdown-content { 
                 display: block; 
             }
 
-            .register-btn {
-                margin-left: 0;
-                margin-top: 5px;
+            .register-btn { 
+                margin-left: 0; 
+                text-align: center;
+            }
+            .vip-btn { 
+                margin-left: 0; 
+                text-align: center;
             }
 
-            .hero h1 { font-size: 2rem; }
             .location-container { flex-direction: column; }
             .sticky-cta-banner { flex-direction: column; padding: 10px; gap: 10px; }
             .whatsapp-float { bottom: 120px; right: 15px; width: 50px; height: 50px; font-size: 25px; }
@@ -987,18 +990,18 @@
 
     <nav>
         <a href="#" class="logo-container">
-            <img src="steven_website_logo.png" class="logo-img" alt="沙田理科補習 Steven Sir Logo">
+            <img src="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" class="logo-img" alt="沙田理科補習 Steven Sir Logo">
             <div class="logo-text">
                 Steven Sir 
                 <span class="logo-sub">沙田石門天王教育理科 | 奪星專家</span>
             </div>
         </a>
         
-        <button class="menu-toggle" id="mobile-menu-btn">
+        <div class="hamburger" id="hamburger-toggle">
             <i class="fas fa-bars"></i>
-        </button>
+        </div>
         
-        <div class="nav-links" id="nav-menu-links">
+        <div class="nav-links" id="nav-links-menu">
             <div class="nav-item"><a href="#summer-course" class="summer-nav-btn">暑期課程</a></div>
             
             <div class="nav-item">
@@ -1041,8 +1044,9 @@
     </section>
 
     <section id="summer-course" class="summer-section">
-        <h2 class="summer-title">🔥 2026 暑期王牌課程 (15/7 - 1/9)</h2>
+        <h2 class="summer-title">🔥 2026 暑期王牌課程 （7月15號-9月1號）</h2>
         <p class="summer-subtitle">「暑假沒有校內負擔，是補底或突圍的唯一黃金機會！」</p>
+        <p class="summer-subtitle">暑假班，將於7月15號開始！</p>
 
         <div class="promo-banner">
             <h3>🎁 暑期限定：多人同行 瘋狂回贈</h3>
@@ -1057,13 +1061,9 @@
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">拒絕死背，完成從 IS 到 DSE 的思維跳躍！</p>
                 <ul class="features-list">
                     <li><i class="fas fa-check-circle"></i> <strong>直擊核心：</strong>拋棄廢話，只教考評局要求。</li>
-                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>邏輯拆解：</strong>用日常思維化解抽象理科.</li>
+                    <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>邏輯拆解：</strong>用日常思維化解抽象理科。</li>
                     <li><i class="fas fa-check-circle"></i> <strong>超前部署：</strong>預習 F.4 最易失分地獄課題。</li>
                 </ul>
-                <div class="timetable-box">
-                    <p>🧬 Biology: 逢星期三 1:30 - 3:00 PM</p>
-                    <p>🧪 Chemistry: 逢星期四 1:30 - 3:00 PM</p>
-                </div>
                 <a href="https://wa.me/85265572013?text=你好，我想報名升F4暑期課程" class="summer-cta">WhatsApp立即報名</a>
             </div>
 
@@ -1076,28 +1076,47 @@
                     <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>奪星框架：</strong>傳授名校 5** 答題邏輯。</li>
                     <li><i class="fas fa-check-circle"></i> <strong>避坑指南：</strong>拆解歷屆考生 80% 常犯錯誤。</li>
                 </ul>
-                <div class="timetable-box" style="border-left-color: #d32f2f;">
-                    <p>🧬 Biology: 逢星期三 9:15 - 10:45 AM</p>
-                    <p>🧪 Chemistry: 逢星期四 9:15 - 10:45 AM</p>
-                </div>
                 <a href="https://wa.me/85265572013?text=你好，我想報名升F5暑期課程" class="summer-cta" style="background:#d32f2f;">WhatsApp立即報名</a>
             </div>
 
             <div class="course-card" style="border-top-color: #d4af37;">
                 <span class="card-tag" style="color:#d4af37;">升 F.6 王牌衝刺班</span>
-                <h3 style="color:#333;">👑 最後直線衝刺 + 地獄操卷班</h3>
+                <h3>👑 最後直線衝刺 + 地獄操卷班</h3>
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">時間無多！用考評局邏輯在最後 200 天逆天改命！</p>
                 <ul class="features-list">
                     <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>地獄操卷：</strong>嚴選神校 Mock 卷，限時實戰訓練。</li>
                     <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>Keywords：</strong>揭露考評局「寫漏即扣分」關鍵字。</li>
                     <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>精準刷題：</strong>不再盲目對答案，教你如何拆題。</li>
                 </ul>
-                <div class="timetable-box" style="border-left-color: #d4af37;">
-                    <p style="white-space: nowrap;">🧬 Biology: 逢星期三 11:00 AM - 12:30 PM</p>
-                    <p style="white-space: nowrap;">🧪 Chemistry: 逢星期快 11:00 AM - 12:30 PM</p>
-                </div>
                 <a href="https://wa.me/85265572013?text=你好，我想報名升F6地獄衝刺班" class="summer-cta" style="background:#333;">WhatsApp立即報名</a>
             </div>
+        </div>
+
+        <h3 style="color: var(--primary); text-align: center; margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem;">📅 2026 暑期課程時間表</h3>
+        <p style="text-align: center; margin-bottom: 25px; color: #555;">上課地點：沙田石門京瑞廣場 (天王教育) | <span style="color:red; font-weight:bold;">Video Class</span> 亦支援同步隨時重溫！</p>
+        <div class="table-container" style="max-width: 1000px; margin: 0 auto;">
+            <table>
+                <thead>
+                    <tr><th width="20%">年級</th><th width="30%">科目</th><th width="50%">上課時間</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>升 F.4 (中四)</strong></td>
+                        <td><span class="subject-tag bio">BIO</span> 暑期班<br><span class="subject-tag chem">CHEM</span> 暑期班</td>
+                        <td>逢星期三 11:00 AM - 12:30 PM (Bio)<br>逢星期四 11:00 AM - 12:30 PM (Chem)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>升 F.5 (中五)</strong></td>
+                        <td><span class="subject-tag bio">BIO</span> 暑期班<br><span class="subject-tag chem">CHEM</span> 暑期班</td>
+                        <td>逢星期三 1:30 PM - 3:00 PM (Bio)<br>逢星期四 1:30 PM - 3:00 PM (Chem)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>升 F.6 (中六)</strong></td>
+                        <td><span class="subject-tag bio">BIO</span> 暑期衝刺班<br><span class="subject-tag chem">CHEM</span> 暑期衝刺班</td>
+                        <td>逢星期三 7:30 PM - 9:00 PM (Bio)<br>逢星期四 7:30 PM - 9:00 PM (Chem)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -1114,7 +1133,7 @@
             <p>我不僅教你知識，更教你考試的策略。從題目設計到批改，我與團隊都親力親為，致力成為全沙田理科補習最高質素的選擇。</p>
         </div>
         <div class="about-img">
-            <img src="steven_website_logo.png" style="width:100%; height:100%; object-fit:cover;" alt="沙田 Chemistry 補習 及 Biology 補習名師 Steven Sir">
+            <img src="https://github.com/chenzhenyang217-netizen/STEVEN.github.io/blob/8740650f8979c82ff8ff0b371a2e8c8b69c83366/JPEG%E5%BD%B1%E5%83%8F-4B86-811F-D8-0.JPEG?raw=true" style="width:100%; height:100%; object-fit:cover;" alt="沙田 Chemistry 補習 及 Biology 補習名師 Steven Sir">
         </div>
     </section>
 
@@ -1261,8 +1280,8 @@
                 <div class="format-content">
                     <h3><i class="fas fa-video"></i> Online live班 (直播)</h3>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> 透過 <span style="color: var(--zoom-blue); font-weight: bold;">Zoom 視訊軟件</span> 進行。</li>
-                        <li><i class="fas fa-check-circle"></i> 即時問答互動，確保在家學習不分心。</li>
+                        <li><i class="fas fa-video"></i> 透過 <span style="color: var(--zoom-blue); font-weight: bold;">Zoom 視訊軟件</span> 進行。</li>
+                        <li><i class="fas fa-check-circle"></i> 即時問答互動，確保在家學習不分心.</li>
                         <li><i class="fas fa-check-circle"></i> 筆記郵寄到家，省卻交通時間。</li>
                     </ul>
                 </div>
@@ -1357,7 +1376,7 @@
             </div>
         </div>
         <div class="results-footer">
-            <div class="next-one">下一個爆分嘅，<span>就係你🫵</span></div>
+            <div class="next-one">下一個爆分嘅，<span>就係你！🫵</span></div>
             <a href="https://wa.me/85265572013?text=你好，我想了解沙田理科補習！" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
                 <i class="fab fa-whatsapp"></i> 立即 WhatsApp 留位
             </a>
@@ -1372,7 +1391,7 @@
             <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
 
-        <p style="margin-top: 30px; color: #555;">如有 any 其他查詢，歡迎直接聯絡我：</p>
+        <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
         <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
@@ -1394,24 +1413,7 @@
     </a>
 
     <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navMenuLinks = document.getElementById('nav-menu-links');
-
-    // 點擊漢堡按鈕開關選單
-    mobileMenuBtn.addEventListener('click', () => {
-        navMenuLinks.classList.toggle('active');
-    });
-
-    // 點擊手機版選單內的任何連結時，自動關閉選單（優化體驗）
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                navMenuLinks.classList.remove('active');
-            }
-        });
-    });
-
+    // VIP密碼驗證
     function checkVIP() {
         var password = prompt("【天王教育現有學生專區】\n請輸入本月 VIP 通行密碼：\n(如未有密碼，請 WhatsApp 聯絡 Steven Sir)");
         if (password === "STEVEN2026") { 
@@ -1421,6 +1423,34 @@
             alert("密碼錯誤 ❌ 請聯絡 Steven Sir 獲取最新密碼。");
         }
     }
+
+    // 漢堡選單手機版切換
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.getElementById('hamburger-toggle');
+        const navLinks = document.getElementById('nav-links-menu');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                const icon = hamburger.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+
+            // 點擊連結後自動收起選單
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    hamburger.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+        }
+    });
     </script>
 
 </body>
