@@ -62,7 +62,7 @@
             background-color: #fff; 
         }
 
-        /* --- Navigation --- */
+        /* --- Navigation (Desktop & Tablet Layout) --- */
         nav { 
             background: var(--white); 
             padding: 0.5rem 5%; 
@@ -156,6 +156,7 @@
             display: block; 
         }
 
+        /* 預設隱藏漢堡按鈕 (電腦與平板電腦不顯示) */
         .hamburger {
             display: none;
             font-size: 1.8rem;
@@ -905,7 +906,9 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* --- Responsive Queries --- */
+        /* ==========================================================================
+           手機專屬漢堡選單 RWD 媒體查詢 (只在螢幕寬度 768px 以下的手機版生效)
+           ========================================================================== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             
@@ -917,68 +920,112 @@
                 position: sticky;
                 top: 0;
                 width: 100%;
+                background: #ffffff !important;
+                z-index: 2000; /* 確保導覽列主體高於所有網頁元件 */
             }
 
+            /* 僅在手機版啟用漢堡選單按鈕 */
             .hamburger { 
                 display: block; 
             }
 
+            /* 手機版下拉式滿版白色選單區塊，完美阻擋後方文字與元件 */
             .nav-links { 
                 display: none; 
                 flex-direction: column; 
                 position: absolute;
-                top: 80px; 
+                top: 80px; /* 緊貼導覽列下緣 */
                 left: 0;
                 width: 100%;
-                background: var(--white) !important;
-                box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-                padding: 20px;
-                gap: 15px;
+                height: auto;
+                max-height: calc(100vh - 80px); /* 限制最高高度防止超出螢幕 */
+                overflow-y: auto; /* 選單內容過多時可垂直捲動 */
+                
+                /* 核心修復：強制設定100%全白且完全不透明之背景色，並利用極高的 z-index 置頂 */
+                background-color: #ffffff !important;
+                background: #ffffff !important;
+                opacity: 1 !important;
+                z-index: 99999 !important;
+                
+                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+                padding: 20px 6%;
+                gap: 10px;
                 margin-top: 0;
                 align-items: stretch;
-                z-index: 1010;
-                opacity: 1 !important;
             }
 
+            /* 當啟動 .active 樣式時，以 flex 區塊垂直排開 */
             .nav-links.active {
-                display: flex;
+                display: flex !important;
             }
 
             .nav-item { 
-                padding: 5px 0; 
+                padding: 0; 
                 width: 100%;
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
                 height: auto;
+                display: block;
+                background-color: #ffffff !important;
             }
 
+            /* 手機版選單項目樣式優化，統一底線分隔 */
             .nav-item a {
                 width: 100%;
-                text-align: center;
-                padding: 10px 0;
+                text-align: left;
+                padding: 14px 10px;
+                display: block;
+                background-color: #ffffff !important;
+                color: var(--text) !important;
+                font-size: 1.05rem;
+                border-bottom: 1px solid #eeeeee;
             }
 
+            /* 暑期課程與立即報名按鈕在選單中保持按鈕原本的高亮色調 */
+            .nav-item a.summer-nav-btn {
+                background-color: var(--orange-btn) !important;
+                color: white !important;
+                text-align: center;
+                border-radius: 8px;
+                margin-top: 5px;
+                border-bottom: none;
+            }
+            .nav-item a.register-btn { 
+                background-color: var(--highlight) !important; 
+                color: #000000 !important;
+                text-align: center;
+                border-radius: 8px;
+                margin-top: 5px;
+                border-bottom: none;
+                font-weight: 900 !important;
+            }
+            .nav-item a.vip-btn { 
+                text-align: center;
+                border-radius: 8px;
+                margin-top: 5px;
+                border: 1px solid #d4af37;
+            }
+
+            /* 手機版下拉式次級選單結構優化 */
             .dropdown-content { 
                 position: static; 
                 box-shadow: none; 
                 display: none; 
                 width: 100%;
-                text-align: center;
-                background: #f8f9fa;
-                border-radius: 8px;
+                text-align: left;
+                background: #f8f9fa !important;
+                border-radius: 6px;
                 margin-top: 5px;
+                padding-left: 15px;
             }
-            .nav-item:hover .dropdown-content { 
-                display: block; 
+            
+            .dropdown-content a {
+                background: #f8f9fa !important;
+                border-bottom: 1px solid #eef0f2;
             }
 
-            .register-btn { 
-                margin-left: 0; 
-                text-align: center;
-            }
-            .vip-btn { 
-                margin-left: 0; 
-                text-align: center;
+            .nav-item:hover .dropdown-content { 
+                display: block; 
             }
 
             .location-container { flex-direction: column; }
@@ -1392,7 +1439,7 @@
             <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
 
-        <p style="margin-top: 30px; color: #555;">如有 any 其他查詢，歡迎直接聯絡我：</p>
+        <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
         <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
             <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
@@ -1425,7 +1472,7 @@
         }
     }
 
-    // 漢堡選單手機版切換
+    // 漢堡選單手機版切換邏輯 (嚴格對應手機版顯示)
     document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.getElementById('hamburger-toggle');
         const navLinks = document.getElementById('nav-links-menu');
@@ -1436,17 +1483,16 @@
                 
                 const icon = hamburger.querySelector('i');
                 if (navLinks.classList.contains('active')) {
-                    icon.className = 'fas fa-times';
+                    icon.className = 'fas fa-times'; // 展開時變成關閉叉叉
                 } else {
-                    icon.className = 'fas fa-bars';
+                    icon.className = 'fas fa-bars'; // 摺疊時恢復漢堡線條
                 }
             });
 
-            // 點擊連結後自動收起選單
+            // 點擊選單內的連結後，自動關閉手機選單，優化使用者觀感
             const links = navLinks.querySelectorAll('a');
             links.forEach(link => {
                 link.addEventListener('click', function() {
-                    navLinks.classList.remove('remove'); // Keep exact same script logic
                     navLinks.classList.remove('active');
                     hamburger.querySelector('i').className = 'fas fa-bars';
                 });
