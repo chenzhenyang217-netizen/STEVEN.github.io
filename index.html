@@ -347,6 +347,9 @@
             border-top: 6px solid var(--primary); 
             transition: 0.3s; 
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .course-card:hover { 
             transform: translateY(-10px); 
@@ -359,6 +362,7 @@
             border-radius: 20px; 
             font-weight: bold; 
             margin-bottom: 15px; 
+            align-self: flex-start;
         }
         .course-card h3 { 
             font-size: 1.4rem; 
@@ -367,8 +371,9 @@
         }
         .features-list { 
             list-style: none; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             text-align: left; 
+            flex-grow: 1;
         }
         .features-list li { 
             margin-bottom: 10px; 
@@ -381,21 +386,56 @@
             color: #28a745; 
             margin-top: 5px; 
         }
-        .summer-cta { 
-            background-color: var(--primary); 
-            color: white; 
-            padding: 12px; 
+
+        /* --- 暑期課程自訂新按鈕樣式（比照截圖樣式設計） --- */
+        .summer-cta-new { 
+            background-color: transparent; 
+            padding: 12px 20px; 
             border-radius: 30px; 
             text-decoration: none; 
             font-weight: bold; 
             display: block; 
-            margin-top: 20px; 
+            margin-top: auto; 
             text-align: center; 
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+            border: 2px solid transparent;
         }
-        .summer-cta:hover { 
-            opacity: 0.9; 
-            transform: scale(1.02); 
+        
+        /* 中四藍色主題按鈕 */
+        .btn-f4 {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        .btn-f4:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+        }
+
+        /* 中五紅色主題按鈕 */
+        .btn-f5 {
+            color: #d32f2f;
+            border-color: #d32f2f;
+        }
+        .btn-f5:hover {
+            background-color: #d32f2f;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.2);
+        }
+
+        /* 中六黑色主題按鈕 */
+        .btn-f6 {
+            color: #333333;
+            border-color: #333333;
+        }
+        .btn-f6:hover {
+            background-color: #333333;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(51, 51, 51, 0.2);
         }
 
         /* --- About Section --- */
@@ -900,25 +940,6 @@
             transition: transform 0.3s; 
             font-size: 1rem; 
         }
-        .whatsapp-float { 
-            position: fixed; 
-            bottom: 80px; 
-            right: 20px; 
-            background: #25D366; 
-            color: white; 
-            width: 55px; 
-            height: 55px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 30px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
-            z-index: 999; 
-            text-decoration: none; 
-            transition: transform 0.3s; 
-        }
-        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* ==========================================================================
            手機專屬漢堡選單 RWD 媒體查詢 (只在螢幕寬度 768px 以下的手機版生效)
@@ -1052,7 +1073,6 @@
 
             .location-container { flex-direction: column; }
             .sticky-cta-banner { flex-direction: column; padding: 10px; gap: 10px; }
-            .whatsapp-float { bottom: 120px; right: 15px; width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
 </head>
@@ -1103,8 +1123,8 @@
         </div>
         <h1>沙田理科補習首選<br>揀 Steven Sir 奪星！</h1>
         <p>沙田石門天王教育理科專家 | 專攻 DSE Chemistry 補習 & Biology 補習<br>私補式貼心教學 | 24小時無限問書，助你輕鬆應付校內試及 DSE。</p>
-        <a href="https://wa.me/85265572013" class="cta-btn-hero">
-            <i class="fab fa-whatsapp"></i> 預約免費試堂
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="cta-btn-hero">
+            預約免費試堂
         </a>
     </section>
 
@@ -1114,22 +1134,17 @@
         <div class="stat-item"><span class="stat-number">10+</span><span>團隊奪星總數</span></div>
     </section>
 
-   <section id="free-trial" class="summer-section" style="padding-bottom: 20px;">
+    <section id="free-trial" class="summer-section" style="padding-bottom: 20px;">
         <h2 class="summer-title">2026 新學年【升中五 / 升中六】免費試堂日</h2>
         <div style="max-width: 800px; margin: 20px auto; padding: 20px; text-align: center; border: 1px solid #eee; border-radius: 10px; background: #fafafa;">
             <h3 style="margin-bottom: 15px;">🌟 只選好的｜只做對的</h3>
-            <p style="margin-bottom: 15px;">天王教育旗下的導師，中文科導師 林Sir 和 Biology + Chemistry 理科導師 Steven Sir <br>
-            將會於六月尾舉辦完全免費的2天的中文和理科試堂日，試堂的同學將會學到重要答題技巧、Concept!<br>
-            以作為大考後唯一逆轉、拉開差距的黃金機會，並為DSE繼續做好準備和超前部署！<br>
-            試堂日完成後，也將會向同學派發珍貴的<span style="color: #d32f2f; font-weight: bold; background-color: #fff3cd; padding: 2px 5px; border-radius: 4px;">實體試題練習冊</span>和<span style="color: #d32f2f; font-weight: bold; background-color: #fff3cd; padding: 2px 5px; border-radius: 4px;">日後的報讀課程優惠</span>！🔥</p>
-            <p style="margin-bottom: 15px;"><strong>🔥 【天王教育沙田最強中文 + 最強Chemistry + 最強Biology 組合】<br>
-            大考後唯一逆轉、拉開差距的黃金機會！</strong></p>
+            <p style="margin-bottom: 15px;">天王教育旗下的導師，中文科導師 林Sir 和 Biology + Chemistry 理科導師 Steven Sir 將會於六月尾舉辦完全免費的2天的中文和理科試堂日，試堂的同學將會學到重要答題技巧、Concept，以作為大考後唯一逆轉、拉開差距的黃金機會，並為DSE繼續做好準備和超前部署！試堂日完成後，也將會向同學派發珍貴的實體試題練習冊和日後的報讀課程優惠！🔥</p>
+            <p style="margin-bottom: 15px;"><strong>🔥 【天王教育沙田最強中文 + 最強Chemistry + 最強Biology 組合 】大考後唯一逆轉、拉開差距的黃金機會！</strong></p>
             <p style="margin-bottom: 15px;">📍 上課地點：天王教育 (位於石門)</p>
             <p style="margin-bottom: 20px;">📅 上課日期：<br>
-            新學年 升中五場次：2026年6月27日(星期六)<br>
-            新學年 升中六場次：2026年6月28日(星期日)</p>
-            <p style="margin-bottom: 15px;">按下以下連結以更了解試堂日詳情，並填上Google form以申請參與試當日！<br>
-            名額有限，額滿即止！</p>
+            新學年 升中五場次：2026 年 6 月 27 日（星期六）<br>
+            新學年 升中六場次：2026 年 6 月 28 日（星期日）</p>
+            <p style="margin-bottom: 15px;">按下以下連結以更了解試堂日詳情，並填上Google form以申請參與試當日！名額有限，額滿即止！</p>
 
             
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFFHFVndpxrSe0QgRVtA0VoCgaA_zwyHaiM4yegOeBy44S_w/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
@@ -1138,7 +1153,7 @@
 
     <section id="summer-course" class="summer-section">
         <h2 class="summer-title">🔥 2026 暑期王牌課程 （7月15號-9月1號）</h2>
-        <p class="summer-subtitle">「暑假沒有校內負擔，是補底或突圍的唯一黃金機會！」</p>
+        <p class="summer-subtitle">「暑假沒有校內负擔，是補底或突圍的唯一黃金機會！」</p>
         <p class="summer-subtitle">暑假班，將於7月15號開始！</p>
 
         <div class="promo-banner">
@@ -1157,7 +1172,7 @@
                     <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>邏輯拆解：</strong>用日常思維化解抽象理科。</li>
                     <li><i class="fas fa-check-circle"></i> <strong>超前部署：</strong>預習 F.4 最易失分地獄課題。</li>
                 </ul>
-                <a href="https://wa.me/85265572013?text=你好，我想報名升F4暑期課程" class="summer-cta">WhatsApp立即報名</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="summer-cta-new btn-f4">填表上課！</a>
             </div>
 
             <div class="course-card" style="border-top-color: #d32f2f;">
@@ -1169,11 +1184,11 @@
                     <li style="white-space: nowrap;"><i class="fas fa-check-circle"></i> <strong>奪星框架：</strong>傳授名校 5** 答題邏輯。</li>
                     <li><i class="fas fa-check-circle"></i> <strong>避坑指南：</strong>拆解歷屆考生 80% 常犯錯誤。</li>
                 </ul>
-                <a href="https://wa.me/85265572013?text=你好，我想報名升F5暑期課程" class="summer-cta" style="background:#d32f2f;">WhatsApp立即報名</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="summer-cta-new btn-f5">填表上課！</a>
             </div>
 
-            <div class="course-card" style="border-top-color: #d4af37;">
-                <span class="card-tag" style="color:#d4af37;">升 F.6 王牌衝刺班</span>
+            <div class="course-card" style="border-top-color: #333333;">
+                <span class="card-tag" style="color:#333333;">升 F.6 王牌衝刺班</span>
                 <h3>👑 最後直線衝刺 + 地獄操卷班</h3>
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">時間無多！用考評局邏輯在最後 200 天逆天改命！</p>
                 <ul class="features-list">
@@ -1181,7 +1196,7 @@
                     <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>Keywords：</strong>揭露考評局「寫漏即扣分」關鍵字。</li>
                     <li style="white-space: nowrap;"><i class="fas fa-fire"></i> <strong>精準刷題：</strong>不再盲目對答案，教你如何拆題。</li>
                 </ul>
-                <a href="https://wa.me/85265572013?text=你好，我想報名升F6地獄衝刺班" class="summer-cta" style="background:#333;">WhatsApp立即報名</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="summer-cta-new btn-f6">填表上課！</a>
             </div>
         </div>
 
@@ -1196,17 +1211,17 @@
                     <tr>
                         <td><strong>升 F.4 (中四)</strong></td>
                         <td><span class="subject-tag bio">BIO</span> 暑期班<br><span class="subject-tag chem">CHEM</span> 暑期班</td>
-                        <td>逢星期三 11:00 AM - 12:45 PM (Bio)<br>逢星期四 11:00 AM - 12:45 PM (Chem)</td>
+                        <td>逢星期三 11:00 AM - 12:30 PM (Bio)<br>逢星期四 11:00 AM - 12:30 PM (Chem)</td>
                     </tr>
                     <tr>
                         <td><strong>升 F.5 (中五)</strong></td>
                         <td><span class="subject-tag bio">BIO</span> 暑期班<br><span class="subject-tag chem">CHEM</span> 暑期班</td>
-                        <td>逢星期三 1:30 PM - 3:15 PM (Bio)<br>逢星期四 1:30 PM - 3:15 PM (Chem)</td>
+                        <td>逢星期三 1:30 PM - 3:00 PM (Bio)<br>逢星期 Thursdays 1:30 PM - 3:00 PM (Chem)</td>
                     </tr>
                     <tr>
                         <td><strong>升 F.6 (中六)</strong></td>
                         <td><span class="subject-tag bio">BIO</span> 暑期衝刺班<br><span class="subject-tag chem">CHEM</span> 暑期衝刺班</td>
-                        <td>逢星期三 7:30 PM - 9:15 PM (Bio)<br>逢星期四 7:30 PM - 9:15 PM (Chem)</td>
+                        <td>逢星期三 7:30 PM - 9:00 PM (Bio)<br>逢星期四 7:30 PM - 9:00 PM (Chem)</td>
                     </tr>
                 </tbody>
             </table>
@@ -1469,9 +1484,9 @@
             </div>
         </div>
         <div class="results-footer">
-            <div class="next-one">下一個爆分嘅，<span>就係你！🫵</span></div>
-            <a href="https://wa.me/85265572013?text=你好，我想了解沙田理科補習！" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
-                <i class="fab fa-whatsapp"></i> 立即 WhatsApp 留位
+            <div class="next-one">下一個爆分嘅，<span>就係快點來！🫵</span></div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
+        </div>
             </a>
         </div>
     </section>
@@ -1484,9 +1499,9 @@
             <p style="color: #856404; margin: 0;"><strong>🔥 新生優惠：報讀 Bio/Chem 可享 $200 學費資助！</strong></p>
         </div>
 
-        <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
-        <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block;">
-            <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
+        <p style="margin-top: 30px; color: #555;">如有 any 其他查詢，歡迎直接聯絡我：</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
+        </div>
         </a>
     </section>
 
@@ -1496,14 +1511,10 @@
 
     <div class="sticky-cta-banner">
         <div class="sticky-cta-text">🌟 F4/5/6 課程 <span>限時免費試堂</span> 火熱預約中！</div>
-        <a href="https://wa.me/85265572013?text=你好，我想預約免費試堂！" class="sticky-cta-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> 立即搶位
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
+        </div>
         </a>
     </div>
-
-    <a href="https://wa.me/85265572013" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <script>
     // VIP密碼驗證
@@ -1547,4 +1558,4 @@
     </script>
 
 </body>
-</html
+</html>
