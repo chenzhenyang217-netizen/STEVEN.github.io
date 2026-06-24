@@ -11,16 +11,7 @@
 
     <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '924748117115622');
-    fbq('track', 'PageView');
-    </script>
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n    n.callMethod.apply(n,arguments):n.queue.push(arguments)};\n    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\n    n.queue=[];t=b.createElement(e);t.async=!0;\n    t.src=v;s=b.getElementsByTagName(e)[0];\n    s.parentNode.insertBefore(t,s)}(window, document,'script',\n    'https://connect.facebook.net/en_US/fbevents.js');\n    fbq('init', '924748117115622');\n    fbq('track', 'PageView');\n    </script>
     <noscript>
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=924748117115622&ev=PageView&noscript=1"/>
     </noscript>
@@ -233,10 +224,20 @@
         }
         .hero p { 
             font-size: 1.2rem; 
-            margin-bottom: 2rem; 
+            margin-bottom: 1.5rem; 
             max-width: 800px; 
             margin-left: auto; 
             margin-right: auto; 
+        }
+        .hero-notice {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .hero-tags span { 
             display: inline-block; 
@@ -248,20 +249,46 @@
             font-weight: bold; 
             font-size: 0.9rem; 
         }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        /* 第一頁 Google Form 報名按鈕修改為淺紫色樣式 */
         .cta-btn-hero { 
-            background-color: #25D366; 
-            color: white; 
+            background-color: #D8B4F8; 
+            color: #331B5D; 
             padding: 15px 30px; 
             border-radius: 30px; 
             text-decoration: none; 
             font-weight: bold; 
             font-size: 1.2rem; 
             display: inline-block; 
-            margin-top: 20px; 
-            transition: transform 0.2s; 
+            transition: transform 0.2s, background-color 0.2s; 
+            box-shadow: 0 4px 15px rgba(216, 180, 248, 0.4);
         }
         .cta-btn-hero:hover { 
             transform: scale(1.05); 
+            background-color: #C397EB;
+        }
+        .whatsapp-btn-hero {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        .whatsapp-btn-hero:hover {
+            transform: scale(1.05);
         }
 
         /* --- Stats --- */
@@ -480,7 +507,7 @@
         .location-info { 
             flex: 1; 
             min-width: 300px; 
-        }
+            }
         .location-map { 
             flex: 1.2; 
             min-width: 300px; 
@@ -1123,9 +1150,22 @@
         </div>
         <h1>沙田理科補習首選<br>揀 Steven Sir 奪星！</h1>
         <p>沙田石門天王教育理科專家 | 專攻 DSE Chemistry 補習 & Biology 補習<br>私補式貼心教學 | 24小時無限問書，助你輕鬆應付校內試及 DSE。</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="cta-btn-hero">
-            預約免費試堂
-        </a>
+        
+        <div class="hero-notice">
+            如果有意過來上課，歡迎填 Google Form 或 直接WhatsApp天王教育 報名！<br>
+            如果是試堂，請填 Google Form！<br>
+            請記得先了解課程的時間表<br>
+            注意，2026年7月15號至9月1號期間是進行 暑期課程，期間並沒有 常規課程
+        </div>
+
+        <div class="hero-buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="cta-btn-hero">
+                填Google Form上課/免費試堂
+            </a>
+            <a href="https://wa.me/85265572013?text=你好，我想透過WhatsApp報名理科常規/暑期課程！" target="_blank" class="whatsapp-btn-hero">
+                <i class="fab fa-whatsapp"></i> WhatsApp報名
+            </a>
+        </div>
     </section>
 
     <section class="stats">
@@ -1216,12 +1256,12 @@
                     <tr>
                         <td><strong>升 F.5 (中五)</strong></td>
                         <td><span class="subject-tag bio">BIO</span> 暑期班<br><span class="subject-tag chem">CHEM</span> 暑期班</td>
-                        <td>逢星期三 1:30 PM - 3:00 PM (Bio)<br>逢星期 Thursdays 1:30 PM - 3:00 PM (Chem)</td>
+                        <td>逢星期三 1:30 PM - 3:00 PM (Bio)<br>逢星期四 1:30 PM - 3:00 PM (Chem)</td>
                     </tr>
                     <tr>
                         <td><strong>升 F.6 (中六)</strong></td>
                         <td><span class="subject-tag bio">BIO</span> 暑期衝刺班<br><span class="subject-tag chem">CHEM</span> 暑期衝刺班</td>
-                        <td>逢星期三 7:30 PM - 9:00 PM (Bio)<br>逢星期四 7:30 PM - 9:00 PM (Chem)</td>
+                        <td>逢星期三 7:30 PM - 9:00 PM (Bio)<br>逢星期快 7:30 PM - 9:00 PM (Chem)</td>
                     </tr>
                 </tbody>
             </table>
@@ -1422,7 +1462,7 @@
                 <tbody>
                     <tr><td><strong>S.3 (中三)</strong></td><td><span class="subject-tag chem">CHEM</span> <span class="subject-tag bio">BIO</span> 終極大考衝刺班</td><td>星期六 6:00-7:30 pm (Chem)<br>星期六 8:00-9:30 pm (Bio)<br>星期日 7:00-8:30 pm (實戰操卷)</td><td style="color: #e67e22; font-weight: bold;">🔥 即將滿額</td></tr>
                     <tr><td><strong>S.4 (中四)</strong></td><td><span class="subject-tag bio">BIO</span> 常規拔尖/補底班</td><td>星期二 7:40 – 9:10 pm</td><td style="color: green;">招生中</td></tr>
-                    <tr><td><strong>S.4 (中四)</strong></td><td><span class="subject-tag chem">CHEM</span> 常規拔尖/補底班</td><td>星期三 7:40 – 9:10 pm</td><td style="color: green;">招生中</td></tr>
+                    <tr><td><strong>S.4 (中四)</strong></td><td><span class="subject-tag chem">CHEM</span> 常規拔尖/補底班</td><td>星期開 7:40 – 9:10 pm</td><td style="color: green;">招生中</td></tr>
                     <tr><td><strong>S.5 (中五)</strong></td><td><span class="subject-tag bio">BIO</span> 常規拔尖/補底班</td><td>星期日 5:00 – 6:30 pm</td><td style="color: green;">招生中</td></tr>
                     <tr><td><strong>S.5 (中五)</strong></td><td><span class="subject-tag chem">CHEM</span> 常規拔尖/補底班</td><td>星期日 7:00 – 8:30 pm</td><td style="color: green;">招生中</td></tr>
                 </tbody>
@@ -1484,9 +1524,12 @@
             </div>
         </div>
         <div class="results-footer">
-            <div class="next-one">下一個爆分嘅，<span>就係快點來！🫵</span></div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
-        </div>
+            <div class="next-one">下一個爆分嘅，<span>就係你！🫵</span></div>
+            <a href="https://wa.me/85265572013?text=你好，我想透過WhatsApp報名理科常規/暑期課程！" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block; background-color: #28a745; color: white; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">
+                <i class="fab fa-whatsapp"></i> 立即 WhatsApp 留位
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block; margin-top: 15px; background-color: #003366; color: white; box-shadow: 0 4px 10px rgba(0, 51, 102, 0.3);">
+                <i class="fas fa-file-alt"></i> 填Google Form 報名/試堂
             </a>
         </div>
     </section>
@@ -1500,8 +1543,8 @@
         </div>
 
         <p style="margin-top: 30px; color: #555;">如有任何其他查詢，歡迎直接聯絡我：</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
-        </div>
+        <a href="https://wa.me/85265572013" class="cta-btn-hero" style="padding: 15px 40px; font-size: 1.3rem; display: inline-block; background-color: #25D366; color: white; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);">
+            <i class="fab fa-whatsapp"></i> 立即 WhatsApp 查詢
         </a>
     </section>
 
@@ -1511,8 +1554,8 @@
 
     <div class="sticky-cta-banner">
         <div class="sticky-cta-text">🌟 F4/5/6 課程 <span>限時免費試堂</span> 火熱預約中！</div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8aZSBaPc5r_rN6bctzXqD8Y491v3xwuR4VQ9ikHCa1BuoA/viewform" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #28a745; color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);">現在申請試堂！</a>
-        </div>
+        <a href="https://wa.me/85265572013?text=你好，我想預約免費試堂！" class="sticky-cta-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> 立即搶位
         </a>
     </div>
 
